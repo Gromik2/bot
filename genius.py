@@ -20,7 +20,7 @@ def index():
 def webhook():
     json_str = request.get_data().decode('UTF-8')
     update = telebot.types.Update.de_json(json_str)
-    bot.process_new_update([update])
+    bot.process_new_updates([update])
     return '', 200
 @bot.message_handler(commands=["start"])
 def send_welcome(message):
@@ -137,8 +137,6 @@ def dice_answer(call):
     else:
         bot.send_message(call.message.chat.id, "Попробуй еще раз")
 
-
-bot.polling(none_stop=True, interval=0)
 
 
 if __name__ == "__main__":
