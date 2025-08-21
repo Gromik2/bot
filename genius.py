@@ -45,7 +45,7 @@ def send_long_message(chat_id, text, parse_mode="MarkdownV2"):
         bot.send_message(chat_id, safe_text[i:i+MAX_LEN], parse_mode=parse_mode)
 
 def load_photo(message, name):
-    photo = message photo[-1]
+    photo = message.photo[-1]
     file_info = bot.get_file(photo.file_id)
     downloaded_file = bot.download_file(file_info.file.path)
     save_path = name
